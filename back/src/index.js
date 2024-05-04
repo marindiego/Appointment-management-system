@@ -1,11 +1,10 @@
-"use strict";
-const num = 5;
-const num2 = 5;
-const sum = (a, b) => {
+var num = 5;
+var num2 = 5;
+var sum = function (a, b) {
     return a + b;
 };
 console.log(sum(num, num2));
-const diego = {
+var diego = {
     name: 'Diego',
     age: 30
 };
