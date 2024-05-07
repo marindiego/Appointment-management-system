@@ -1,3 +1,9 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+dotenv.config({ path: "./src/config/.env"});
 
-export const PORT = process.env.PORT || 0;
+
+const PORT = process.env.PORT || 3000;
+const PROTO = process.env.PROTO || "http";
+const HOST = process.env.HOST || "localhost";
+
+export { PORT, PROTO, HOST };

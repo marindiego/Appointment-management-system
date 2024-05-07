@@ -1,6 +1,6 @@
-import server from "./server";
-import { PORT } from "./config/envs";
+import { PORT, HOST, PROTO } from "./config/envs";
+import server from "./server/server";
 
-server.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+ server.listen(PORT, () => {
+    console.log(`Server running on ${PROTO}://${HOST}:${PORT}`);
+})

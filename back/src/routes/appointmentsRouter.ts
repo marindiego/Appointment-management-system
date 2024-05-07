@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAppointment, getAppointments, createAppointment, cancelAppointment } from "../controllers/turnsController";
+import { getAppointmentById, getAppointments, createAppointment, cancelAppointment } from "../controllers/appointmentController";
 
 const router: Router = Router();
 
@@ -7,7 +7,7 @@ const router: Router = Router();
 router.get("/", getAppointments);
 
 // GET /appointment/:id => Obtener el detalle de un turno específico.
-router.get("/:id", getAppointment);
+router.get("/:id", getAppointmentById);
 
 // POST /appointment/schedule => Agenda un nuevo turno
 router.post("/schedule", createAppointment);
