@@ -27,11 +27,10 @@ export const getUserById = async (req: Request, res: Response) => {
 export const createUser = async (req: Request, res: Response) => {
     try {
         const user: UserDto = req.body;
-        console.log(user);
         const newUser = await createUserService(user);
         res.status(201).json({message: "User registered",newUser})
     } catch (error) {
-        res.status(500).json({ message: 'Error al crear el usuario' });
+        res.status(500).json({ message: 'Error al crear el usuario', error});
     }
 }
 export const loginUser = async (req: Request, res: Response) => {

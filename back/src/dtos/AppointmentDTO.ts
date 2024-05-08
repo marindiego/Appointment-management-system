@@ -1,8 +1,9 @@
-import { IUser } from "../interfaces/IUser";
+import { User } from "../entities/User";
+
 
 export interface AppointmentDto {
     date: Date;
     time: string;
     description: string;
-    userId: IUser["id"];
+    userId: User["id"];
 }

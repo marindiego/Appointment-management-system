@@ -1,53 +1,48 @@
+import { AppointmentModel } from "../config/data-source";
 import { AppointmentDto } from "../dtos/AppointmentDTO";
-import { IAppointment, Status } from "../interfaces/IAppointment";
+import { Appointment } from "../entities/Appointment";
+import { Status } from "../interfaces/IAppointment";
+import { getUserByIdService } from "./userService";
 
-const appointments: IAppointment[] = [
-    {
-        id: 1,
-        date: new Date("2024-02-02"),
-        time: "10:00am",
-        description: "Orthodontics",
-        status: Status.ACTIVE,
-        userId: 1,
-    }
-];
-let idCounter: number = 0;
 
-export const getAppointmentsService = async (): Promise<IAppointment[]> => {
-    return appointments;
+
+export const getAppointmentsService = async (): Promise<Appointment[]> => {
+    return AppointmentModel.find({
+        relations: {
+            user: true,
+        }
+    })
 }
-export const getAppointmentByIdService = async (id: number): Promise<IAppointment | undefined> => {
+export const getAppointmentByIdService = async (id: number): Promise<Appointment | null> => {
     try {
-        return appointments.find(appointment => appointment.id === id);
+        return AppointmentModel.findOneBy({id});
     }catch(error){
         throw new Error("Appointment not found");
     }
 }
-export const createAppointmentService = async (appointment: AppointmentDto): Promise<IAppointment> => {
+export const createAppointmentService = async (appointment: AppointmentDto): Promise<Appointment> => {
     try {
-        idCounter++;
-        const newAppointment: IAppointment = {
-            id: idCounter,
-            date: appointment.date,
-            time: appointment.time,
-            description: appointment.description,
-            status: Status.ACTIVE,
-            userId: appointment.userId,
+        const user = await getUserByIdService(appointment.userId);
+        if (user) {
+            const newAppointment = await AppointmentModel.create(appointment);
+            newAppointment.user = user;
+            await AppointmentModel.save(newAppointment);
+            return newAppointment;
         }
-        appointments.push(newAppointment);
-        return newAppointment;
+        throw new Error("User not found");
     }catch(error){
         throw new Error("Appointment not created");
     }
 }
-export const cancelAppointmentService = async (id: number): Promise<IAppointment | undefined> => {
+export const cancelAppointmentService = async (id: number): Promise<Appointment | null> => {
     try {
         const appointment = await getAppointmentByIdService(id);
         if(appointment){
             appointment.status = Status.CANCELED;
+            await AppointmentModel.save(appointment);
             return appointment;
         }
-        return undefined;
+        return null;
     }catch(error){
         throw new Error("Appointment not cancelled");
     }

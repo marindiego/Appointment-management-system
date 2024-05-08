@@ -3,16 +3,16 @@ import { getAppointmentById, getAppointments, createAppointment, cancelAppointme
 
 const router: Router = Router();
 
-// GET /appointment => Obtener el listado de todos los turnos de todos los usuarios.
+// GET /appointments => Obtener el listado de todos los turnos de todos los usuarios.
 router.get("/", getAppointments);
 
-// GET /appointment/:id => Obtener el detalle de un turno específico.
+// GET /appointments/:id => Obtener el detalle de un turno específico.
 router.get("/:id", getAppointmentById);
 
-// POST /appointment/schedule => Agenda un nuevo turno
+// POST /appointments/schedule => Agenda un nuevo turno
 router.post("/schedule", createAppointment);
 
-// PUT /appointment/cancel => Cambiar el estatus de un turno a "cancelled"
-router.put("/cancel", cancelAppointment);
+// PUT /appointments/cancel => Cambiar el estatus de un turno a "cancelled"
+router.put("/cancel/:id", cancelAppointment);
 
 export default router;
