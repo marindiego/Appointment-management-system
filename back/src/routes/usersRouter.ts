@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { getUsers, getUserById, createUser, loginUser } from "../controllers/userController";
+import { checkUserRegisterDto } from "../middlewares/checkUserRegisterDto";
+import { checkUserLoginDto } from "../middlewares/checkUserLoginDto";
 
 const router: Router = Router();
 
@@ -10,9 +12,9 @@ router.get("/", getUsers);
 router.get("/:id", getUserById);
 
 // POST /users/register => Crear un nuevo usuario
-router.post("/register", createUser);
+router.post("/register", checkUserRegisterDto ,createUser);
 
 // POST /users/login = Login de un usuario
-router.post("/login", loginUser);
+router.post("/login", checkUserLoginDto,loginUser);
 
 export default router;

@@ -19,14 +19,20 @@ export class Appointment {
     @Column()
     time: string
 
-    @Column()
+    @Column({
+        type: "varchar"
+    })
     description: string
 
-    @Column()
+    @Column({
+        type: "enum",
+        enum: Status,
+        default: Status.ACTIVE
+    })
     status: Status
     
-    @ManyToOne(()=> User, (user) => user.appointment)
-    user: User
+    @ManyToOne(()=> User, (user) => user.appointments)
+    user: User 
 }
 
 

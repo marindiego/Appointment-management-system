@@ -7,8 +7,8 @@ export const getAppointments = async (req: Request, res: Response) => {
     try {
         const appointments = await getAppointmentsService();
         res.status(200).json(appointments);
-    } catch (error) {
-        res.status(500).json({ message: 'Error al obtener las citas' });
+    } catch (error: any) {
+        res.status(500).json({message: error.message});
     }
 }
 
@@ -17,11 +17,11 @@ export const getAppointmentById = async (req: Request, res: Response) => {
         const { id } = req.params;
         const appointment = await getAppointmentByIdService(Number(id));
         if (!appointment) {
-            return res.status(404).json({ message: 'Cita no encontrada' });
+            return res.status(404).json({ message: 'Appointment not found' });
         }
         res.status(200).json(appointment);
-    } catch (error) {
-        res.status(500).json({ message: 'Error al obtener la cita' });
+    } catch (error: any) {
+        res.status(500).json({message: error.message});
     }
 }
 
@@ -30,10 +30,10 @@ export const createAppointment = async (req: Request, res: Response) => {
         const appointment = req.body as AppointmentDto;
         const newAppointment = await createAppointmentService(appointment);
         if (newAppointment) {
-            res.status(201).json({ message: "Cita creada", newAppointment });
+            res.status(201).json({ message: "Appointment Created", newAppointment });
         }
-    } catch (error) {
-        res.status(500).json({ message: 'Error al crear la cita' });
+    } catch (error: any) {
+        res.status(400).json({message: error.message});
     }
 }
 export const cancelAppointment = async (req: Request, res: Response) => {
@@ -41,10 +41,10 @@ export const cancelAppointment = async (req: Request, res: Response) => {
         const { id } = req.params;
         const canceledAppointment = await cancelAppointmentService(Number(id));
         if (!canceledAppointment) {
-            return res.status(404).json({ message: 'Cita no encontrada' });
+            return res.status(404).json({ message: 'Appointment not found' });
         }
-        res.status(200).json({ message: 'Cita cancelada', canceledAppointment });
-    } catch (error) {
-        res.status(500).json({ message: 'Error al cancelar la cita' });
+        res.status(200).json({ message: 'Appointment cancelled', canceledAppointment });
+    } catch (error: any) {
+        res.status(500).json({message: error.message});
     }
 }

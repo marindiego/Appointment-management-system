@@ -7,17 +7,16 @@ export class Credential {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({
+        unique: true,
+        type: "varchar"
+    })
     username: string;
 
-    @Column()
+    @Column({
+        type: "varchar",  // Password is stored as a string
+        select: false,    // Don't show password
+    })
     password: string;
 }
 
-/*
-export interface ICredential {
-    id: number;
-    username: string;
-    password: string;
-}
-*/ 

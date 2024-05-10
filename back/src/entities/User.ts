@@ -7,26 +7,35 @@ import { Appointment } from "./Appointment";
 })
 export class User {
     @PrimaryGeneratedColumn()
-    id: number
+    id: number;
 
     @Column({
+        type: "varchar",
         length: 50
     })
-    name: string
+    name: string;
 
-    @Column()
-    email: string
+    @Column({
+        unique: true
+    })
+    email: string;
 
-    @Column()
-    birthDate: Date
+    @Column({
+        type: "date",
+        default: new Date(),
+    })
+    birthDate: Date;
 
-    @Column("integer")
-    nDni: number
+    @Column({
+        type: "int",
+        unique: true,
+    })
+    nDni: number;
 
     @OneToOne(()=> Credential)
     @JoinColumn()
-    credential: Credential["id"]
+    credential: Credential | Credential["id"];
 
     @OneToMany(()=> Appointment, (appointment) => appointment.user)
-    appointment: Appointment
+    appointments: Appointment[]
 }
