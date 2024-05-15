@@ -1,0 +1,110 @@
+/**
+ * Reset CSS
+ * 
+ * Este archivo restablece los estilos predeterminados del navegador para proporcionar un lienzo limpio y consistente para construir estilos personalizados.
+ * 
+ *  
+ */
+
+/* Elementos de bloque y Pseudo-Elementos*/
+*,::after,::before {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    box-sizing: border-box;
+  }
+
+/* Ajuste para elementos de lista */
+ol,
+ul {
+  list-style: none;
+}
+
+/* Ajuste para el elemento de anclaje */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Ajuste para los elementos de tabla */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Ajustes para los elementos de bloque */
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+
+/* Ajuste para los elementos de ins y del */
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+/* Ajuste para los elementos agrupados */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Ajuste para los elementos de botón */
+button,
+input[type="button"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button; /* Ajuste para Safari */
+  appearance: button;
+}
+
+/* Ajuste para los elementos de texto */
+input[type="text"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none; /* Ajuste para Safari */
+  appearance: none;
+}
+
+/* Ajuste para los elementos de selección */
+select {
+  -webkit-appearance: none; /* Ajuste para Safari */
+  -moz-appearance: none; /* Ajuste para Firefox */
+  appearance: none;
+}
+
+/* Ajuste para los elementos de preformateado */
+pre {
+  white-space: pre-wrap; /* Ajuste para preservar el espacio en blanco */
+}
+
+/* Ajuste para los elementos de enlace */
+a:active,
+a:hover {
+  outline: 0; /* Ajuste para eliminar el contorno del enlace al hacer clic o pasar el mouse */
+}
+
+/* Ajuste para los elementos ocultos */
+[hidden] {
+  display: none; /* Ajuste para ocultar elementos */
+}
+
+/* Ajuste para elementos de enfoque */
+:focus {
+  outline: 0; /* Ajuste para eliminar el contorno al enfocar */
+}

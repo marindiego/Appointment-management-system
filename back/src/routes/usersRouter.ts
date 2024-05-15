@@ -1,12 +1,13 @@
-import { Router } from "express";
+import { Router  } from "express";
 import { getUsers, getUserById, createUser, loginUser } from "../controllers/userController";
 import { checkUserRegisterDto } from "../middlewares/checkUserRegisterDto";
 import { checkUserLoginDto } from "../middlewares/checkUserLoginDto";
 
 const router: Router = Router();
 
+
 // GET /users => Obtener todos los usuarios
-router.get("/", getUsers);
+router.get("/",getUsers);
 
 // GET /users/:id => Obtener un usuario por su ID
 router.get("/:id", getUserById);

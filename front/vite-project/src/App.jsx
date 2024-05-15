@@ -1,11 +1,14 @@
+import NavBar from "./components/NavBar/NavBar"
 import Home from "./views/Home"
+import Appointments from "./views/Appointments"
 
 function App() {
 
   return (
     <>
-    <Home />
-    {/* <MisTurnos /> */}
+    <NavBar />
+    {/* <Home /> */}
+    <Appointments />
     </>
   )
 }

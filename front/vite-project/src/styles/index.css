@@ -1,0 +1,39 @@
+:root {
+    --primary-color: #8bc089;
+    --secondary-color: #20547f;
+    --gray: #d6d7db;
+    --dark-gray: #433c3c;
+    --black: #24292b;
+    --white: #ebf1f3;
+    --primary-font: 'Poppins', sans-serif;
+    --secondary-font: 'Roboto', sans-serif;
+    --heading-size: 2.8rem;
+    --text-size: 1.4rem;
+    --sm-text-size: .8rem;
+    --sub-heading-size: 2rem;
+}
+.body {
+    background: #eff1f2;
+}
+/*Appointment view*/
+.appointment-section {
+    height: 100vh;
+}
+.appointment-table {
+    font-family: var(--primary-font);
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+.appointment-table-header {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-items: center;
+    padding: 7px;
+    background: var(--dark-gray);
+    color: var(--white);
+}
+.appointment-table-body {
+    background-color: var(--gray);
+}

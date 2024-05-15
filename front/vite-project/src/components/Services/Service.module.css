@@ -1,0 +1,19 @@
+.services-section {
+    padding: 40px 20px;
+}
+.services-section-title {
+    width: 100%;
+    margin: 20px 0;
+    text-align: center;
+    font-size: var(--heading-size);
+    font-family: var(--primary-font);
+}
+.highlight-service {
+    color: #a829bc;
+}
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}

@@ -1,11 +1,14 @@
-import NavBar from "../components/NavBar";
+import Hero from "../components/Hero/Hero";
+import Services from "../components/Services/Services";
+import "../styles/index.css";
+
 
 const Home = () => {
     return (
-        <div>
-            <NavBar />
-            <h1>Home</h1>
-        </div>
+        <main className="body">
+            <Hero />
+            <Services />
+        </main>
     )
 }
 
