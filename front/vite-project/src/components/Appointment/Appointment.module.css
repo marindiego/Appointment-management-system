@@ -5,10 +5,35 @@
     justify-items: center;
     width: 100%;
     height: 100%;
-    padding: 7px;
+    padding: 10px;
 }
-.appointment-status {
-    background: #c6f4c5;
+.appointment-description-cardiology {
+    color: #cc2929;
+    font-weight: bold;
+}
+.appointment-description-dermatology {
+    color: #20c354;
+    font-weight: bold;
+}
+.appointment-description-pediatrics {
+    color: #b78535;
+    font-weight: bold;
+}
+.appointment-description-orthodontics {
+    color: #37a4c8;
+    font-weight: bold;
+}
+.appointment-info:hover {
+    background: #c0d8e7;
+    cursor: pointer;
+}
+.appointment-status-active {
+    background: #b3fdb2;
+    padding: 2px 3px;
+    border-radius: 5px;
+}
+.appointment-status-canceled {
+    background: #f8d7da;
     padding: 2px 3px;
     border-radius: 5px;
 }

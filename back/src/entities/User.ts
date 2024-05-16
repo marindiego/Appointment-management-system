@@ -22,7 +22,6 @@ export class User {
 
     @Column({
         type: "date",
-        default: new Date(),
     })
     birthDate: Date;
 

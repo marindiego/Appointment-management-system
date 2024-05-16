@@ -4,10 +4,7 @@ import { CredentialRepository } from "../repositories/CredentialRepository";
 
 export const createCredentials = async (username: string, password: string): Promise<number> => {
    try {
-    const credentials = await CredentialRepository.save({
-        username,
-        password
-    })
+    const credentials = await CredentialRepository.save({username, password});
     return credentials.id;
     }catch (error: any) {
         throw new Error("Error creating credentials, invalid username o password");

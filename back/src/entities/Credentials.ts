@@ -8,7 +8,6 @@ export class Credential {
     id: number;
 
     @Column({
-        unique: true,
         type: "varchar"
     })
     username: string;

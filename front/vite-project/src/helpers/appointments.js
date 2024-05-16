@@ -26,7 +26,7 @@ const appointments = [
         date: "2024-08-08",
         time: "16:00:00",
         description: "Orthodontics",
-        status: "active"
+        status: "canceled"
     }
 ]
 export default appointments;

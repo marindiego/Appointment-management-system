@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #8bc089;
+    --primary-color: #9bdd99;
     --secondary-color: #20547f;
     --gray: #d6d7db;
     --dark-gray: #433c3c;
@@ -17,6 +17,7 @@
 }
 /*Appointment view*/
 .appointment-section {
+    background: #dfe0e8;
     height: 100vh;
 }
 .appointment-table {
