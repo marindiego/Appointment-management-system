@@ -1,8 +1,10 @@
 import styles from "./NavBar.module.css";
 import logo from "../../assets/logo.png";
 import profile from "../../assets/profile.svg";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const NavBar = () => {
+  const isLoggedIn = useSelector(state => state.isLoggedIn)
     return (
         <header>
             <nav className={styles.navbar}>
@@ -13,9 +15,10 @@ const NavBar = () => {
                     <Link to="/">
                         <span>Home</span>
                     </Link>
+                    {isLoggedIn ? 
                     <Link to="/appointments">
-                        <span>Appointment</span>
-                    </Link>
+                        <span>Appointments</span>
+                    </Link> : null}
                     {/* <Link to="/about-us">
                         <span>About Us</span>
                     </Link>
@@ -28,10 +31,6 @@ const NavBar = () => {
                     <Link to="/register">
                         <span>Register</span>
                     </Link>
-                    {/* <span>Home</span>
-                    <span>Appointment</span>
-                    <span>About Us</span>
-                    <span>Contact</span> */}
                 </div>
                 <div className={styles["profile-container"]}>
                     <img className={styles["profile-image"]} src={profile} alt="profile" />

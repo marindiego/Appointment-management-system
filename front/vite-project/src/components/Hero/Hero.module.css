@@ -51,3 +51,6 @@
     align-self: flex-start; 
     cursor: pointer;
 }
+.hero:button:hover {
+    background-color: #20547f;
+}

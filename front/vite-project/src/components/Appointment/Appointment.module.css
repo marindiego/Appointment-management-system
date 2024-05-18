@@ -1,11 +1,14 @@
 
-.appointment-info {
+.appointment-info, .appointment-info-cancel {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     justify-items: center;
     width: 100%;
     height: 100%;
     padding: 10px;
+}
+.appointment-info-cancel {
+    background: #f8d7da;
 }
 .appointment-description-cardiology {
     color: #cc2929;
@@ -33,7 +36,15 @@
     border-radius: 5px;
 }
 .appointment-status-canceled {
-    background: #f8d7da;
-    padding: 2px 3px;
+    background: #ffa9b0;
+    padding: 3px 5px;
     border-radius: 5px;
+}
+.appointment-info button, .appointment-info-cancel button {
+    background: #eff844;
+    padding: 3px 5px;
+    border-radius: 5px;
+}
+.appointment-info-cancel button {
+    background: #bfc72a;
 }

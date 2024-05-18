@@ -15,6 +15,19 @@ export const getAppointmentsService = async (): Promise<Appointment[]> => {
         }
     })
 }
+export const getAppointmentsByUserIdService = async (userId: number): Promise<Appointment[]> => {
+    try {
+        const appointments = await AppointmentRepository.find({
+            where: { user: { id: userId } },
+        })
+        if (!appointments.length) {
+            throw new Error("Appointments not found");
+        }
+        return appointments;
+    } catch (error) {
+        throw new Error("Appointments not found");
+    }
+}
 export const getAppointmentByIdService = async (id: number): Promise<Appointment | null> => {
     try {
         return AppointmentRepository.findOne({

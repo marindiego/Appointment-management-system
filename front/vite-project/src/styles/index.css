@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #9bdd99;
+    --primary-color: #59b756;
     --secondary-color: #20547f;
     --gray: #d6d7db;
     --dark-gray: #433c3c;
@@ -17,6 +17,7 @@
 }
 /*Appointment view*/
 .appointment-section {
+    position: relative;
     background: #dfe0e8;
     height: 100vh;
 }
@@ -37,4 +38,27 @@
 }
 .appointment-table-body {
     background-color: var(--gray);
+}
+.appointment-schedule-button {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    font-family: var(--primary-font);
+    background: var(--secondary-color);
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: var(--white);
+    font-weight: bold;
+    font-size: var(--sm-text-size);
+    cursor: pointer;
+}
+.appointment-schedule-button:hover {
+    background: #425d75;
+}
+.plus-icon {
+    color: var(--white);
+    font-weight: bold;
+    margin-right: 5px;
+    vertical-align: middle;   
 }

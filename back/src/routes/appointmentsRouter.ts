@@ -1,6 +1,7 @@
 import { Router } from "express";
-import { getAppointmentById, getAppointments, createAppointment, cancelAppointment } from "../controllers/appointmentController";
+import { getAppointmentById, getAppointments, createAppointment, cancelAppointment, getAppointmentsByUserId } from "../controllers/appointmentController";
 import { checkAppointmentScheduleDto } from "../middlewares/checkAppointmentScheduleDto";
+
 
 const router: Router = Router();
 
@@ -9,6 +10,9 @@ router.get("/", getAppointments);
 
 // GET /appointments/:id => Obtener el detalle de un turno específico.
 router.get("/:id", getAppointmentById);
+
+// GET/appintments/user/:id => Obtener el listado de turnos de un usuario.
+router.get("/users/:id", getAppointmentsByUserId);
 
 // POST /appointments/schedule => Agenda un nuevo turno
 router.post("/schedule", checkAppointmentScheduleDto ,createAppointment);

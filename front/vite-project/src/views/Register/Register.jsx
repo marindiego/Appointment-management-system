@@ -22,7 +22,6 @@ const Register = () => {
         password: "",
         confirmPassword: ""
     });
-    console.log(userData);
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUserData({ ...userData, [name]: value });
@@ -55,7 +54,7 @@ const Register = () => {
         });
     }
     useEffect(() => {
-        console.log("Errors", errors); // Mostrar errores actualizados
+         // Mostrar errores actualizados
       }, [errors]);   
     return (
         <section className={styles["register-section"]}>
