@@ -1,7 +1,7 @@
 
 import CardService from "../CardService/CardService";
 import styles from "./Service.module.css";
-import servicesArr from "../../helpers/services";
+import servicesArr from "../../services/services";
 import { useState } from "react";
 
 

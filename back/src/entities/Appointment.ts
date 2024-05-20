@@ -1,7 +1,9 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./User";
 
-export enum Status {
+//? What does enum mean?
+//* Enum is a special type in TypeScript that allows you to define a set of named constants.
+export enum Status { 
     ACTIVE = "ACTIVE",
     CANCELED = "CANCELED"
 }
@@ -25,9 +27,9 @@ export class Appointment {
     description: string
 
     @Column({
-        type: "enum",
-        enum: Status,
-        default: Status.ACTIVE
+        type: "enum", // Here we are using enum type to define the possible values for the status column. 
+        enum: Status, // Here we are using the Status enum to define the possible values for the status column.  
+        default: Status.ACTIVE 
     })
     status: Status
     

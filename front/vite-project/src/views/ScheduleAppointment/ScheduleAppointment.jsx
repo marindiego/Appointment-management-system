@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from './ScheduleAppointment.module.css';
-import { validateAppointment } from '../../helpers/validateAppointment';
-import { postAppointmentForm } from '../../helpers/axiosRequest';
+import { validateAppointment } from '../../services/validateAppointment';
+import { postAppointmentForm } from '../../services/apiService';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -14,7 +14,7 @@ const ScheduleAppointment = () => {
     const [appointment, setAppointment] = useState({
         date: "",
         time: "",
-        description: ""
+        description: "Cardiology"
     })
     const [errors, setErrors] = useState({
         date: "",
@@ -39,7 +39,6 @@ const ScheduleAppointment = () => {
         }
         try {
             const response = await postAppointmentForm(appointment, userId);
-            console.log(response);
             if (response.status === 201) {
                 alert("Appointment scheduled successfully");
                 setAppointment({
@@ -75,6 +74,7 @@ const ScheduleAppointment = () => {
                 />
                 {errors.date && <p className={styles["error-message"]}>{errors.date}</p>}
                 <label>Time</label>
+                <p className={styles["attention-message"]}>Opening hours are from 8:00 am to 20:00 pm. </p>
                 <input 
                     type="time"
                     name="time"
@@ -88,7 +88,7 @@ const ScheduleAppointment = () => {
                     value={appointment.description}
                     onChange={handleOnChange}
                 >
-                    <option value="Cardiologist">Cardiology</option>
+                    <option value="Cardiology">Cardiology</option>
                     <option value="Orthodontics">Orthodontics</option>
                     <option value="Pediatrics">Pediatrics</option>
                     <option value="Dermatology">Dermatology</option>

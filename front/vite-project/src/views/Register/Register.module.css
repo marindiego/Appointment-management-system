@@ -37,6 +37,9 @@
     font-weight: bold;
     background: -webkit-linear-gradient(90deg, #1c549d,#198a97,#7aa711);                                             
 }
+.register-button:disabled {
+    opacity: 0.6;
+}
 .error {
     color: rgb(214, 26, 26);
     font-size: var(--sm-text-size);

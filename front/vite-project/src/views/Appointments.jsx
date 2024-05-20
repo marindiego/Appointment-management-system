@@ -1,14 +1,17 @@
 import { useEffect } from 'react';
-import Appointment from "../components/Appointment/Appointment";
-//import appointmentsArr from "../helpers/appointments";
 import { useState } from "react";
 import { useSelector } from 'react-redux';
 import "../styles/index.css"
-import { getAppointmentsByUserId } from '../helpers/axiosRequest';
+import { getAppointmentsByUserId } from '../services/apiService';
 import { useDispatch } from 'react-redux';
 import { updateAppointments } from '../redux/slices';
-import { cancelAppointment } from '../redux/slices';
 import { Link } from 'react-router-dom';
+import React, { Suspense } from 'react';
+
+//? What am I doing here?
+//* I'm using lazy loading to load the component only when it's needed
+const LazyAppointmentsLoader = React.lazy(() => import('../hooks/LazyAppointmentsLoader.jsx'));
+
 
 const NoAppointments = () => {
     return (
@@ -19,16 +22,14 @@ const NoAppointments = () => {
 }
 
 const Appointments = () => {
-    //const [appointments,setAppointments] = useState([]);
     const [hasAppointment,setHasAppointment] = useState(false);
     const userId = useSelector(state => state.userId);
-    const appointments = useSelector(state => state.appointments);
     const dispatch = useDispatch();
     
     useEffect(() => {
         getAppointmentsByUserId(userId)
             .then(res => {
-                if (res.status === 200) {
+                if (res.status === 200) {    
                     setHasAppointment(true);
                     dispatch(updateAppointments(res.data));
                 }
@@ -38,16 +39,6 @@ const Appointments = () => {
             })
     },[userId,dispatch])
 
-    const handleOnClickCancel = (id) => {
-        dispatch(cancelAppointment(id));
-        getAppointmentsByUserId(userId)
-            .then(res => {
-                dispatch(updateAppointments(res.data));
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }
     return (
         <main className="body">
             <section className="appointment-section">
@@ -68,19 +59,9 @@ const Appointments = () => {
                         <NoAppointments/>    
                     :
                     <div className="appointment-table-body">
-                        {
-                            appointments.map(appointment => (
-                                <Appointment
-                                    key={appointment.id}
-                                    id={appointment.id}
-                                    date={appointment.date}
-                                    time={appointment.time}
-                                    description={appointment.description}
-                                    status={appointment.status}
-                                    handleOnClickCancel={() => handleOnClickCancel(appointment.id)}
-                                />
-                            ))
-                        }
+                        <Suspense fallback={<div style={{textAlign: "center", marginTop: "100px", marginBottom: "100px", fontSize: "24px", fontWeight: "bold"}}>Loading...</div>}>
+                            <LazyAppointmentsLoader />
+                        </Suspense>
                     </div>
                     }
                 </div>

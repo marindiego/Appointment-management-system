@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { cancelAppointment as cancel } from "../helpers/axiosRequest";
+import { cancelAppointment as cancel } from "../services/apiService";
 
 const initialState = {
     userId: 0,

@@ -13,13 +13,13 @@
     --sub-heading-size: 2rem;
 }
 .body {
-    background: #eff1f2;
+    background: #e6ebed;
 }
 /*Appointment view*/
 .appointment-section {
     position: relative;
     background: #dfe0e8;
-    height: 100vh;
+    min-height: 100vh;
 }
 .appointment-table {
     font-family: var(--primary-font);
@@ -37,7 +37,7 @@
     color: var(--white);
 }
 .appointment-table-body {
-    background-color: var(--gray);
+    background-color: #efffed;
 }
 .appointment-schedule-button {
     position: absolute;

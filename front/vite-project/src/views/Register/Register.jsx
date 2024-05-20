@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import styles from "./Register.module.css";
-import { validateRegister } from "../../helpers/validateRegister";
+import { validateRegister } from "../../services/validateRegister";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+    const navigate = useNavigate();
     const [userData, setUserData] = useState({
         name: "",
         email: "",
@@ -28,6 +30,7 @@ const Register = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log("errors")
         const validationsErrors = validateRegister(userData);
         setErrors(validationsErrors);
 
@@ -47,15 +50,13 @@ const Register = () => {
         .then((response) => {
             if (response.status === 201) {
                 alert("Usuario registrado correctamente");
+                navigate("/login");
             }
         })
         .catch((error) => {
             alert("Duplicate DNI or email", error.response.message);
         });
-    }
-    useEffect(() => {
-         // Mostrar errores actualizados
-      }, [errors]);   
+    }   
     return (
         <section className={styles["register-section"]}>
             <form onSubmit={handleSubmit} className={styles["register-form"]}>
@@ -137,7 +138,8 @@ const Register = () => {
                 </div>
                 <button type="submit" className={styles["register-button"]} 
                 disabled={
-                    !userData.name || !userData.email || !userData.nDni || !userData.birthDate || !userData.username || !userData.password || !userData.confirmPassword}>Register</button>
+                    !userData.name || !userData.email || !userData.nDni || !userData.birthDate || !userData.username || !userData.password || !userData.confirmPassword
+                }>Register</button>
             </form>
         </section>
     )

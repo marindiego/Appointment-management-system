@@ -17,6 +17,11 @@
     margin: 0px auto;
     background: rgb(196, 223, 227);
 }
+.attention-message {
+    color: rgb(11, 145, 25);
+    font-size: var(--sm-text-size);
+    font-weight: bold;
+}
 .schedule-appointment-form label {
     font-weight: bold;
     color: var(--dark-gray);
@@ -52,4 +57,9 @@
 }
 .schedule-button:hover {
     background: #3f7d3b;
+}
+.error-message {
+    color: rgb(219, 12, 12);
+    font-size: var(--sm-text-size);
+    font-weight: bold;
 }

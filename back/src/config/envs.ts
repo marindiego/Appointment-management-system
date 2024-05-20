@@ -1,4 +1,6 @@
 import dotenv from "dotenv";
+//? What am I doing here?
+//* I'm reading the .env file and setting the variables to the process.env object
 dotenv.config({ path: "./src/config/.env"});
 
 

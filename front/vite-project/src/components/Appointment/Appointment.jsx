@@ -2,8 +2,6 @@ import { PropTypes } from 'prop-types'
 import styles from "./Appointment.module.css"
 
 const Appointment = ({ date, time, description, status, handleOnClickCancel}) => {
-
-   
     return (
         <div className={status === "ACTIVE" ? styles["appointment-info"] : styles["appointment-info-cancel"]}>
             <span className={styles["appointment-date"]}>{date.slice(0,10)}</span>
@@ -16,7 +14,7 @@ const Appointment = ({ date, time, description, status, handleOnClickCancel}) =>
                 : 
                 <span className={styles["appointment-status-canceled"]}>{status.toLowerCase()}</span>
             }
-            <button type='button' onClick={handleOnClickCancel}>Cancel</button>
+            <button type='button' onClick={handleOnClickCancel} disabled={status === "CANCELED"}>Cancel</button>
         </div>        
     )
 }

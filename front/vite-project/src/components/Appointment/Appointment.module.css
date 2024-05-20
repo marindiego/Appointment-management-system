@@ -8,7 +8,8 @@
     padding: 10px;
 }
 .appointment-info-cancel {
-    background: #f8d7da;
+    background: #f1dcde;
+    opacity: 0.5;
 }
 .appointment-description-cardiology {
     color: #cc2929;
