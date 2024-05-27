@@ -10,7 +10,7 @@ export const isValidCancelAppointment = (reservationDate) => {
   
     // Calculate the difference in days
     const dayDifference = timeDifference / (1000 * 60 * 60 * 24);
-  
+    
     // Check if the reservation is at least 1 day away
     return dayDifference > 1;
 }

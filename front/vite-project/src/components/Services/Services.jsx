@@ -10,6 +10,7 @@ const Services = () => {
     return (
         <section className={styles["services-section"]}>
             <h2 className={styles["services-section-title"]}>Our best <span className={styles["highlight-service"]}>services</span></h2>
+            <div className={styles["services-section-break"]}></div>
             <div className={styles["services-container"]}>
                 {
                     services.length > 0 &&

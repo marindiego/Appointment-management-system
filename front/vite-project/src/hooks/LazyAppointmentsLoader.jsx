@@ -12,7 +12,7 @@ const LazyAppointmentsLoader = () => {
 
     const handleOnClickCancel = (id, date) => {
         if (!isValidCancelAppointment(date)) {
-            alert("You can't cancel this appointment 24 hours before the scheduled date");
+            alert("You can only cancel appointments 1 day in advance");
             return;
         }
 

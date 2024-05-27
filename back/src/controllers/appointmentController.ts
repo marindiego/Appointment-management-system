@@ -8,7 +8,7 @@ export const getAppointments = async (req: Request, res: Response) => {
         const appointments = await getAppointmentsService();
         res.status(200).json(appointments);
     } catch (error: any) {
-        res.status(500).json({message: error.message});
+        res.status(400).json({message: error.message});
     }
 }
 
@@ -21,7 +21,7 @@ export const getAppointmentById = async (req: Request, res: Response) => {
         }
         res.status(200).json(appointment);
     } catch (error: any) {
-        res.status(500).json({message: error.message});
+        res.status(400).json({message: error.message});
     }
 }
 export const getAppointmentsByUserId = async (req: Request, res: Response) => {
@@ -30,7 +30,7 @@ export const getAppointmentsByUserId = async (req: Request, res: Response) => {
         const appointments = await getAppointmentsByUserIdService(Number(id));
         res.status(200).json(appointments);
     } catch (error: any) {
-        res.status(500).json({message: error.message});
+        res.status(400).json({message: error.message});
     }
 }
 export const createAppointment = async (req: Request, res: Response) => {
@@ -53,6 +53,6 @@ export const cancelAppointment = async (req: Request, res: Response) => {
         }
         res.status(200).json({ message: 'Appointment cancelled', canceledAppointment });
     } catch (error: any) {
-        res.status(500).json({message: error.message});
+        res.status(400).json({message: error.message});
     }
 }

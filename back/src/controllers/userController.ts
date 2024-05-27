@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import { createUserService, getUserByCredentialsId, getUserByIdService, getUsersService, loginUserService } from "../services/userService";
 import { UserDto } from "../dtos/UserDTO";
+import { log } from "console";
 
 export const getUsers = async (req: Request, res: Response) => {
     try {

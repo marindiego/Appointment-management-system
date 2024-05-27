@@ -1,14 +1,33 @@
 .card-service {
+    width: 25%;
+    max-width: 220px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+.card-service-container {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+.card-service-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+    border-radius: 10px 10px 0 0;
+}
+.card-service-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    width: 25%;
-    max-width: 220px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
-    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    background: #fcfcfc;
 }
 .card-service-image-container {
     width: 40px;
@@ -23,23 +42,23 @@
     transform: translateY(2px);
 }
 .card-service-cardiology {
-    background: #ffd8d8;
+    background: hsl(0, 100%, 81%);
 }
 .card-service-orthodontics{
-    background: #e7f6fb;
+    background: hsl(195, 100%, 84%);
 }
 .card-service-pediatrics {
-    background: #fff3e0;
+    background: hsl(37, 100%, 82%);
 }
 .card-service-title {
     font-size: var(--sub-heading-size);
 }
 .card-service-dermatology {
-    background: #e1f4e7;
+    background: hsl(139, 98%, 84%);
 }
 .card-service-description {
     font-family: var(--primary-font);
-    color: var(--secondary-color);
+    color: #5b5858;
     font-weight: bold;
     font-size: var(--sm-text-size);
 }

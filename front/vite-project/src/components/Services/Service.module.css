@@ -18,3 +18,9 @@
     justify-content: center;
     gap: 40px;
 }
+.services-section-break {
+    width: 50%;
+    height: 2px;
+    background: #747474;
+    margin: 20px auto;
+}

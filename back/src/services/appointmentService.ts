@@ -25,7 +25,7 @@ export const getAppointmentsByUserIdService = async (userId: number): Promise<Ap
         }
         return appointments;
     } catch (error) {
-        throw new Error("Appointments not found");
+        throw new Error("The user does not exist or has no appointments");
     }
 }
 export const getAppointmentByIdService = async (id: number): Promise<Appointment | null> => {

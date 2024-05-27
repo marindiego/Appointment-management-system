@@ -29,19 +29,19 @@ const Login = () => {
         if (Object.keys(validationsErrors).length) {  
             return;
         }
-
+        
         axios.post("http://localhost:3002/users/login",user)
             .then((response) => {
                 if (response.status === 200) {
-                    alert("Login correcto");
+                    alert("Login successful");
                     dispatch(setUserId(response.data.userLogged.id));  // seteo el id del usuario
                     dispatch(isLoggedIn(true));
                     navigate("/appointments"); 
                 }
             })
             .catch((error) => {
-                console.log(error.response);
-                alert("Occurred an error");
+                console.log(error);
+                alert(error.response.data.message);
             });
     }
     useEffect(() => {

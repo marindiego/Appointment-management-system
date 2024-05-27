@@ -11,7 +11,7 @@ router.get("/", getAppointments);
 // GET /appointments/:id => Obtener el detalle de un turno específico.
 router.get("/:id", getAppointmentById);
 
-// GET/appintments/user/:id => Obtener el listado de turnos de un usuario.
+// GET/appointments/user/:id => Obtener el listado de turnos de un usuario.
 router.get("/users/:id", getAppointmentsByUserId);
 
 // POST /appointments/schedule => Agenda un nuevo turno
