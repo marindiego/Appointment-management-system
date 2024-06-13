@@ -5,6 +5,7 @@ import { isValidCancelAppointment } from "../services/isValidCancelAppointment.j
 import { useDispatch } from "react-redux";
 import  Appointment  from "../components/Appointment/Appointment.jsx";
 
+
 const LazyAppointmentsLoader = () => {
     const appointments = useSelector(state => state.appointments);
     const userId = useSelector(state => state.userId);
@@ -12,7 +13,7 @@ const LazyAppointmentsLoader = () => {
 
     const handleOnClickCancel = (id, date) => {
         if (!isValidCancelAppointment(date)) {
-            alert("You can only cancel appointments 1 day in advance");
+            alert("Appointments can only be cancelled more than 1 day in advance.");
             return;
         }
 
@@ -26,6 +27,7 @@ const LazyAppointmentsLoader = () => {
                 console.log(err);
             })
     }
+
     return (
         <div>
             {
