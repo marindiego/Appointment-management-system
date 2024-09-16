@@ -2,7 +2,7 @@
     display: grid;
     place-content: center;
     justify-items: center;
-    height: 80vh;
+    height: 40vh;
     background-color: rgb(227, 233, 239);
 }
 .hero-content-container {

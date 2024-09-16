@@ -1,6 +1,8 @@
 .services-section {
     padding: 40px 20px;
     background: #f2f2f2;
+    height: 53vh;
+
 }
 .services-section-title {
     width: 100%;
@@ -16,7 +18,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 40px;
+    gap: 10px;
 }
 .services-section-break {
     width: 50%;

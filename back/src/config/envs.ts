@@ -13,5 +13,10 @@ const DB_USERNAME = process.env.DB_USER || "postgres";
 const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_NAME = process.env.DB_NAME || "centro_de_salud";
 
+const PGUSER = process.env.PGUSER
+const PGHOST = process.env.PGHOST
+const PGDATABASE = process.env.PGDATABASE
+const PGPASSWORD = process.env.PGPASSWORD
+const PGPORT = Number(process.env.PGPORT) || 5432;
 
-export { PORT, PROTO, HOST, DB_PORT, DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME };
+export { PORT, PROTO, HOST, DB_PORT, DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME, PGUSER, PGHOST, PGDATABASE, PGPASSWORD, PGPORT };
